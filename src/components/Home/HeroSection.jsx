@@ -3,11 +3,11 @@ import { FaLocationDot } from "react-icons/fa6";
 
 function HeroSection() {
   return (
-    <div className="grid grid-cols-2 gap-10 my-40">
+    <div className="grid grid-cols-2 gap-10 py-40 bg-slate-100 px-64  ">
       <div>
         <h1 className="font-bold text-5xl mb-6">
-          Consult <span className="text-sky-500">Best Doctors</span> Your <br />{" "}
-          Nearby Location.
+          Consult <span className="text-blue-500">Best Doctors</span> Your{" "}
+          <br /> Nearby Location.
         </h1>
         <h4 className="mb-6 text-lg font-semibold">
           Embark on your healing journey with Doccure
