@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 function Layout() {
   return (
     <>
-      <section className="bg-white h-96 px-64">
+      <section className="bg-slate-100 min-h-screen  px-64">
         <nav className="flex justify-between items-center py-6">
           <h2 className="font-bold text-xl text-sky-600">NEXTSTAVIA</h2>
           <ul className="flex space-x-8">

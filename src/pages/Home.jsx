@@ -1,6 +1,10 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HeroSection from "../components/Home/HeroSection";
 
 function Home() {
-  return <div>Home</div>;
+  return (
+    <section className="">
+      <HeroSection />
+    </section>
+  );
 }
 export default Home;
