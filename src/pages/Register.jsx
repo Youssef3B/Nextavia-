@@ -16,7 +16,6 @@ function Register() {
   const [loadingLocation, setLoadingLocation] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false);
 
-  // Handle change for organization fields
   const handleOrgChange = (e) => {
     const { name, value } = e.target;
     setOrganization({
@@ -25,7 +24,6 @@ function Register() {
     });
   };
 
-  // Handle change for admin fields
   const handleAdminChange = (e) => {
     const { name, value } = e.target;
     setAdminDetails({
@@ -34,7 +32,6 @@ function Register() {
     });
   };
 
-  // Check if all required fields are filled
   useEffect(() => {
     const { orgName, regRef, contactPhone, contactAddress } = organization;
     const isValid =
@@ -45,27 +42,22 @@ function Register() {
     setIsFormValid(isValid);
   }, [organization]);
 
-  // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
     if (step === 2) {
-      // Submit the form data here
       console.log("Organization Details: ", organization);
       console.log("Admin Details: ", adminDetails);
     }
   };
 
-  // Function to fetch geolocation and get address from Nominatim API
   const handleGeolocation = () => {
     setLoadingLocation(true);
 
-    // Browser's Geolocation API
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
         console.log("Lat: ", latitude, "Long: ", longitude);
 
-        // Fetch the address from Nominatim OpenStreetMap Geocoding API
         try {
           const response = await fetch(
             `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
@@ -75,7 +67,7 @@ function Register() {
 
           setOrganization({
             ...organization,
-            contactAddress: data.display_name, // Address from the API
+            contactAddress: data.display_name,
           });
         } catch (error) {
           console.error("Error fetching address: ", error);
@@ -90,8 +82,8 @@ function Register() {
   };
 
   return (
-    <div className="py-12 px-64 h-[80.5vh]">
-      <div className="grid grid-cols-2 gap-5">
+    <div className="py-12 px-4 sm:px-8 md:px-12 lg:px-32 xl:px-64 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
           <img
             className="w-full h-96 object-cover rounded-md"

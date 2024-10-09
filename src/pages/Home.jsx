@@ -1,4 +1,5 @@
 import Advantages from "../components/Home/Advantages";
+import Articles from "../components/Home/Articles";
 import BestServices from "../components/Home/BestServices";
 import Faq from "../components/Home/Faq";
 import HeroSection from "../components/Home/HeroSection";
@@ -11,6 +12,7 @@ function Home() {
       <Advantages />
       <BestServices />
       <HowItWorks />
+      <Articles />
       <Faq />
     </section>
   );

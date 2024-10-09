@@ -3,8 +3,8 @@ import Button from "../components/Button";
 
 function Login() {
   return (
-    <div className="py-12 px-64 h-[80.5vh]">
-      <div className="grid grid-cols-2 gap-5">
+    <div className="py-12 px-4 sm:px-8 md:px-12 lg:px-32 xl:px-64 h-[80.5vh]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
           <img
             className="w-full h-96 object-cover rounded-md"
@@ -13,15 +13,15 @@ function Login() {
           />
         </div>
         <div className="border p-4 rounded-md">
-          <form className="">
+          <form>
             <h3 className="font-semibold text-lg">Login</h3>
-            <div className="my-5 ">
+            <div className="my-5">
               <input
                 type="email"
                 id="email"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 py-4"
                 placeholder="user@email.com"
-                required=""
+                required
               />
             </div>
             <div className="mb-5">
@@ -30,11 +30,13 @@ function Login() {
                 id="password"
                 placeholder="Password"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 py-4"
-                required=""
+                required
               />
             </div>
-            <div className="flex items-start mb-5 float-right">
-              <p className="text-blue-600 font-semibold">Forget Password ?</p>
+            <div className="flex items-start mb-5 justify-end">
+              <p className="text-blue-600 font-semibold cursor-pointer">
+                Forget Password?
+              </p>
             </div>
             <Button className="w-full py-2 hover:transition-all hover:bg-blue-700">
               Login
@@ -54,4 +56,5 @@ function Login() {
     </div>
   );
 }
+
 export default Login;
