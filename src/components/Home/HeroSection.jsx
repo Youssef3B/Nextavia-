@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Button from "../Button";
 import { FaLocationDot } from "react-icons/fa6";
 import DatePicker from "react-datepicker";
@@ -7,8 +8,28 @@ import "react-datepicker/dist/react-datepicker.css";
 function HeroSection() {
   const [startDate, setStartDate] = useState(null);
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
+  const formVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, delay: 0.5 },
+    },
+  };
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 py-20 lg:py-40 bg-slate-100 px-8 lg:px-32 xl:px-64">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      className="grid grid-cols-1 items-center lg:grid-cols-2 gap-10 py-20 lg:py-10 bg-slate-100 px-8 lg:px-32 xl:px-64"
+    >
       <div>
         <h1 className="font-bold text-3xl lg:text-5xl mb-4 lg:mb-6">
           Consult <span className="text-blue-500">Best Doctors</span> Your{" "}
@@ -21,7 +42,12 @@ function HeroSection() {
           Start a Consult
         </Button>
 
-        <div className="bg-white my-8 px-6 lg:px-8 py-6 rounded-lg">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={formVariants}
+          className="bg-white my-8 py-6 rounded-lg"
+        >
           <form className="flex flex-col lg:flex-row space-y-3 lg:space-y-0 lg:space-x-3">
             {/* Search Input */}
             <div className="w-full lg:w-auto">
@@ -98,10 +124,22 @@ function HeroSection() {
               Search
             </Button>
           </form>
-        </div>
+        </motion.div>
       </div>
-      <div className="hidden lg:block"></div>
-    </div>
+
+      {/* Image with animation */}
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{
+          opacity: 1,
+          x: 0,
+          transition: { duration: 0.8, delay: 0.2 },
+        }}
+        className="hidden lg:block"
+      >
+        <img src="/images/herosection.png" alt="Doctor Consultation" />
+      </motion.div>
+    </motion.div>
   );
 }
 

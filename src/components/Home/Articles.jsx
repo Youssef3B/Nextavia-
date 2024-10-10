@@ -1,6 +1,7 @@
 import { FaRegUser } from "react-icons/fa";
 import { CiCalendar } from "react-icons/ci";
 import Button from "../Button";
+import { motion } from "framer-motion";
 
 function Articles() {
   return (
@@ -20,7 +21,13 @@ function Articles() {
 
 function Article() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border shadow-sm p-6 rounded-md">
+    <motion.div
+      className="grid grid-cols-1 md:grid-cols-3 gap-4 border shadow-sm p-6 rounded-md"
+      initial={{ opacity: 0, y: 50 }} // Initial state: transparent and down 50px
+      animate={{ opacity: 1, y: 0 }} // Final state: fully visible and in place
+      transition={{ duration: 0.6, ease: "easeOut" }} // Duration of the animation
+      whileHover={{ scale: 1.05 }} // Slight scale on hover
+    >
       <div className="col-span-1">
         <img
           className="rounded-md h-full object-cover"
@@ -56,7 +63,7 @@ function Article() {
           </Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

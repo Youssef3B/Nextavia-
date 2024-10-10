@@ -1,11 +1,27 @@
 import { FaSearchLocation } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 function HowItWorks() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  const stepVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div className="mx-4 md:mx-16 lg:mx-64 py-10">
+    <div ref={ref} className="mx-4 md:mx-16 lg:mx-64 py-10">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="hidden md:block">
-          <img src="" alt="" />
+          <img src="/images/about.png" alt="" />
         </div>
         <div className="col-span-1 md:col-span-2">
           <h4 className="text-lg md:text-xl text-blue-600 font-semibold mb-3">
@@ -18,7 +34,13 @@ function HowItWorks() {
             {Array(4)
               .fill()
               .map((_, index) => (
-                <div key={index} className="flex space-x-6">
+                <motion.div
+                  key={index}
+                  className="flex space-x-6"
+                  variants={stepVariants}
+                  initial="hidden"
+                  animate={inView ? "visible" : "hidden"}
+                >
                   <div>
                     <FaSearchLocation
                       size={48}
@@ -32,7 +54,7 @@ function HowItWorks() {
                       availability.
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
           </div>
         </div>

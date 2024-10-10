@@ -1,18 +1,39 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion"; // Import motion from framer-motion
 import Button from "../components/Button";
 
 function Login() {
+  // Define animation variants
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
   return (
     <div className="py-12 px-4 sm:px-8 md:px-12 lg:px-32 xl:px-64 h-[80.5vh]">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
+        {/* Animated Image */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.5 }}
+        >
           <img
             className="w-full h-96 object-cover rounded-md"
             src="/images/airplan2.jpg"
-            alt=""
+            alt="Login visual"
           />
-        </div>
-        <div className="border p-4 rounded-md">
+        </motion.div>
+
+        {/* Animated Form */}
+        <motion.div
+          className="border p-4 rounded-md"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.5 }}
+        >
           <form>
             <h3 className="font-semibold text-lg">Login</h3>
             <div className="my-5">
@@ -38,7 +59,7 @@ function Login() {
                 Forget Password?
               </p>
             </div>
-            <Button className="w-full py-2 hover:transition-all hover:bg-blue-700">
+            <Button className="w-full py-2 hover:transition-all text-white hover:bg-blue-700">
               Login
             </Button>
             <div className="h-[2px] bg-gray-200 my-4"></div>
@@ -51,7 +72,7 @@ function Login() {
               </Link>
             </p>
           </form>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
