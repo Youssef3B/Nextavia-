@@ -10,7 +10,7 @@ function Login() {
   };
 
   return (
-    <div className="py-12 px-4 sm:px-8 md:px-12 lg:px-32 xl:px-64 h-[80.5vh]">
+    <div className="py-12 px-4 sm:px-8 md:px-12 lg:px-32 xl:px-64">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {/* Animated Image */}
         <motion.div
