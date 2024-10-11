@@ -46,7 +46,7 @@ function HeroSection() {
           initial="hidden"
           animate="visible"
           variants={formVariants}
-          className="bg-white my-8 py-6 rounded-lg"
+          className="bg-white my-8 px-3 py-6 rounded-lg"
         >
           <form className="flex flex-col lg:flex-row space-y-3 lg:space-y-0 lg:space-x-3">
             {/* Search Input */}
